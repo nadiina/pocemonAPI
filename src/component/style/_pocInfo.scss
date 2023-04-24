@@ -1,0 +1,19 @@
+.card__info {
+    position: absolute; 
+    top: 10%; 
+    right: 14%; 
+    padding: 2rem;
+    background: #fff;
+    border: 3px solid #000;
+    border-radius: 30px;
+    box-shadow: 15px 15px 0 -2.5px #fff, 15px 15px 0 0 #000;
+  }
+  table {
+    border-collapse: collapse;
+    width: 100%;
+  }
+
+  td {
+    border: 1px solid black;
+    padding: 8px;
+  }
