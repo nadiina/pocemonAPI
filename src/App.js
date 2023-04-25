@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from "react";
 import PokemonList from "./component/PocemonList";
 import axios from "axios";
-import Pagination from "./component/Pagination";
-import "./App.css";
+import Button from "./component/Button";
+import "./App.scss";
 import Nav from "./component/Nav";
 import Footer from "./component/footer";
 
@@ -12,9 +12,8 @@ export default function App() {
     "https://pokeapi.co/api/v2/pokemon/?limit=12"
   );
   const [nextPageUrl, setNextPageUrl] = useState();
-  //const [prevPageUrl, setPrevPageUrl] = useState();
   const [loading, setLoading] = useState(true);
-  const [clickCount, setClickCount] = useState(0); // Додали стан для лічильника
+  const [clickCount, setClickCount] = useState(0); 
 
   useEffect(() => {
     setLoading(true);
@@ -26,9 +25,7 @@ export default function App() {
       .then((res) => {
         setLoading(false);
         setNextPageUrl(res.data.next);
-       // setPrevPageUrl(res.data.previous);
         setPokemon(res.data.results.map((p) => p));
-        //console.log(res);
       });
 
     return () => cancel();
@@ -43,11 +40,11 @@ export default function App() {
   if (loading) return "Loading...";
 
   return (
-    <>
+    <div className="app">
       <Nav />
-      <Pagination gotoNextPage={gotoNextPage} />
-      <PokemonList pokemon={pokemon} click={(clickCount + 1) * 12} loading={loading} />
+      <PokemonList pokemon={pokemon} click={clickCount} loading={loading} />
+      <Button gotoNextPage={gotoNextPage} />
       <Footer />
-    </>
+    </div>
   );
 }
