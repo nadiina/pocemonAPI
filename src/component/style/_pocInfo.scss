@@ -1,6 +1,7 @@
+
 .card__info {
     position: absolute; 
-    top: 10%; 
+    top: 20%; 
     right: 14%; 
     padding: 2rem;
     background: #fff;
@@ -16,4 +17,18 @@
   td {
     border: 1px solid black;
     padding: 8px;
+  }
+
+  @media (min-width: 768px) and (max-width: 1023px) {
+    .card__info {
+      padding: 1rem; 
+      right: 10%; 
+    }
+  }
+  
+  @media  (max-width: 767px) {
+    .card__info {
+      font-size: small;
+      padding: 0.5rem; 
+      right: 5%; }
   }

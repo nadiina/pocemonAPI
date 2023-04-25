@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import PokemonInfo from "./PocemonInfo";
-import "./style/style.scss";
+import "./style/_pocList.scss";
 
 export default function PokemonList({ pokemon, click, loading }) {
   const [selectedPokemon, setSelectedPokemon] = useState(null);
@@ -23,7 +23,7 @@ export default function PokemonList({ pokemon, click, loading }) {
     <div className="container">
       {pokemon.map((p, id) => {
         const imageUrl = `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/${
-          (click + 1 - 12) * (id + 1)
+          (click + 1) * (id + 1)
         }.png`;
         return (
           <div
@@ -33,7 +33,7 @@ export default function PokemonList({ pokemon, click, loading }) {
           >
             <img src={imageUrl} alt="" />
             {<PokemonInfo pokemonData={selectedPokemon} />}
-            <h1>{p.name.toUpperCase()}</h1>
+            <h3>{p.name.toUpperCase()}</h3>
           </div>
         );
       })}

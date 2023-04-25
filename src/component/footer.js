@@ -1,5 +1,10 @@
 import React from "react";
+import "./style/_footer.scss"
 
 export default function Footer() {
-  return <div>create by Nadina</div>;
+  return (
+    <footer>
+      <span className="creator">create by Nadina</span>
+    </footer>
+  );
 }
